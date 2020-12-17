@@ -1,0 +1,63 @@
+    PASSO A PASSO
+
+1 - npm init -y
+        instalando o package json
+
+2 - npm install express
+        importando o express para a utilização e criação de endpoints
+
+3 - adicionando "type": "module" no package.json
+         para importações de modulo 
+
+4 - Importanto modulos express e FS
+        import express from "express";
+        import {promises as fs} from "fs";
+
+5 - criação do destructor fs para melhor sintaxe.
+        const {readFile, writeFile} = fs;    
+
+
+6 - criação de váriavel global contendo o arquivo json "grades.json"
+        global.gradesJson = "grades.json";
+
+7 - Instanciando objeto express 
+        const app = express();
+
+8 - Habilitando o uso do express.json()  
+        app.use(express.json());
+
+9 - criando server local com porta 3000
+            app.listen(3000, async () =>{
+            console.log("teste!!");
+            });      
+
+10 -  inserindo try catch no server local
+
+11 - importando arquivo grades.js
+        import gradesRouter from "./routes/grades.js";
+        funcionará com o passo 15
+
+12 - Instalando nodemon
+        npm install -g nodemon
+
+13 - Inserir os passos 4,5,6 em grades.js
+
+14 - Em grades.js instanciar o obj express com rotas
+        const router = express.Router();
+
+15 - exportar obj "router" para ser chamado por index.js
+        export default gradesRouter;
+
+16 -  definir que as requisições "/grades" são do obj gradesRouter     
+        app.use("/grades", gradesRouter); 
+        //em index.js
+
+17 - Testar comunição de arquivos no endpoint gradesRouter.post("/"
+        Resultado OK
+
+18 - Finalizar exercicio 1 do PDF
+        gradesRouter.post("/", async (req, res) =>{}
+
+
+
+OBS: faltou a 2 e 7
